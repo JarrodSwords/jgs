@@ -27,4 +27,8 @@
     <ProjectReference Include="..\ddd\ddd.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="source\" />
+  </ItemGroup>
+
 </Project>
