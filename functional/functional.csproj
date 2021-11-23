@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>Jgs.Functional</AssemblyName>
+    <RootNamespace>Jgs.Functional</RootNamespace>
+	<PackageId>swords.functional</PackageId>
+	<Version>0.1.0</Version>
+	<Authors>Swords, Jarrod</Authors>
+	<Company>tbd</Company>
+  </PropertyGroup>
+
+</Project>
