@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Jgs.EventSourcing</RootNamespace>
+    <AssemblyName>Jgs.EventSourcing</AssemblyName>
+	<PackageId>swords.event-sourcing</PackageId>
+	<Version>0.1.0</Version>
+	<Authors>Swords, Jarrod</Authors>
+	<Company>tbd</Company>
+  </PropertyGroup>
+
+</Project>
