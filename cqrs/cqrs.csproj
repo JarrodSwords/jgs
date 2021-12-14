@@ -4,6 +4,10 @@
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Jgs.Cqrs</RootNamespace>
     <AssemblyName>Jgs.Cqrs</AssemblyName>
+	<PackageId>swords.cqrs</PackageId>
+	<Version>0.1.0</Version>
+	<Authors>Swords, Jarrod</Authors>
+	<Company>tbd</Company>
   </PropertyGroup>
 
 </Project>
