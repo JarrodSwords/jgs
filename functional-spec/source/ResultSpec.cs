@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using Xunit;
 
-namespace Jgs.Functional.Spec.Results
+namespace Jgs.Functional.Spec
 {
     public class ResultSpec
     {
@@ -26,6 +26,17 @@ namespace Jgs.Functional.Spec.Results
             result.IsFailure.Should().BeFalse();
             result.IsSuccess.Should().BeTrue();
             result.Message.Should().BeNull();
+        }
+
+        [Fact]
+        public void WhenInstantiated_WithoutValue_ThenMessageIsSet()
+        {
+            const string message = "failed";
+            var result = Result.Failure<object>(message);
+
+            result.Value.Should().BeNull();
+            result.Message.Should().Be(message);
+            result.IsFailure.Should().BeTrue();
         }
 
         [Fact]

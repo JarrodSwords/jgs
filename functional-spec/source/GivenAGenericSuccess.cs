@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using Xunit;
 
-namespace Jgs.Functional.Spec.Results
+namespace Jgs.Functional.Spec
 {
     public class GivenAGenericSuccess
     {

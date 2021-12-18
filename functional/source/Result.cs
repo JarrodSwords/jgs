@@ -27,6 +27,7 @@ namespace Jgs.Functional
         #region Static Interface
 
         public static Result Failure(string message) => new(message);
+        public static Result<T> Failure<T>(string message) => new(message);
         public static Result Success() => new();
         public static Result<T> Success<T>(T value) => new(value);
 
@@ -49,6 +50,11 @@ namespace Jgs.Functional
         protected internal Result(T value)
         {
             Value = value;
+        }
+
+        protected internal Result(string message) : base(message)
+        {
+            Value = default;
         }
 
         #endregion
