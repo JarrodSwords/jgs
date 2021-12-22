@@ -17,6 +17,8 @@ namespace Jgs.Ddd
 
         public T Value { get; }
 
+        public override string ToString() => Value.ToString();
+
         #endregion
 
         #region Equality

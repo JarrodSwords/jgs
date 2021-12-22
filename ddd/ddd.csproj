@@ -5,7 +5,7 @@
     <RootNamespace>Jgs.Ddd</RootNamespace>
     <AssemblyName>Jgs.Ddd</AssemblyName>
 	  <PackageId>jgs.ddd</PackageId>
-	  <Version>0.1.0</Version>
+	  <Version>0.2.0</Version>
 	  <Authors>Swords, Jarrod</Authors>
 	  <Company>tbd</Company>
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>

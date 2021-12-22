@@ -22,6 +22,11 @@ namespace Jgs.Functional
 
         public Result Bind(Func<Result> func) => IsFailure ? this : func();
 
+        public Result<T> Bind<T>(Func<Result<T>> func) =>
+            IsFailure
+                ? Failure<T>(Message)
+                : func();
+
         #endregion
 
         #region Static Interface
@@ -62,7 +67,11 @@ namespace Jgs.Functional
         #region Public Interface
 
         public T Value { get; }
-        public Result<T> Bind(Func<T, Result<T>> func) => func(Value);
+
+        public Result<TU> Bind<TU>(Func<T, Result<TU>> func) =>
+            IsFailure
+                ? Failure<TU>(Message)
+                : func(Value);
 
         #endregion
     }
