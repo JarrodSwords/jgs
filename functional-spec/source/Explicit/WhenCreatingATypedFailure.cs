@@ -1,5 +1,7 @@
 ﻿using FluentAssertions;
+using Jgs.Functional.Explicit;
 using Xunit;
+using static Jgs.Functional.Explicit.Result<Jgs.Functional.Spec.Explicit.Error>;
 
 namespace Jgs.Functional.Spec.Explicit
 {
@@ -8,9 +10,17 @@ namespace Jgs.Functional.Spec.Explicit
         #region Test Methods
 
         [Fact]
+        public void FromError_ThenResultIsReturned()
+        {
+            Result<object, Error> result = Error.Foo;
+
+            result.Value.Should().BeNull();
+        }
+
+        [Fact]
         public void ThenValueIsDefault()
         {
-            var result = Functional.Explicit.Result<Error>.Failure<object>(Error.Foo);
+            var result = Failure<object>(Error.Foo);
 
             result.Value.Should().BeNull();
         }

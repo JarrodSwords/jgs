@@ -63,6 +63,7 @@
 
         #region Static Interface
 
+        public static implicit operator Result<TValue, TError>(TError error) => new(error);
         public static implicit operator Result<TValue, TError>(TValue value) => new(value);
 
         #endregion
