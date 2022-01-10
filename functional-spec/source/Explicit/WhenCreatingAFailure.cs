@@ -4,14 +4,32 @@ using static Jgs.Functional.Explicit.Result<Jgs.Functional.Spec.Explicit.Error>;
 
 namespace Jgs.Functional.Spec.Explicit
 {
-    public record Error(string Code, string Message)
+    public class WhenCreatingATypedFailure
     {
-        public static Error Foo = new("foo", "this is not the success you're looking for");
+        #region Test Methods
+
+        [Fact]
+        public void ThenValueIsDefault()
+        {
+            var result = Failure<object>(Error.Foo);
+
+            result.Value.Should().BeNull();
+        }
+
+        #endregion
     }
 
     public class WhenCreatingAFailure
     {
         #region Test Methods
+
+        [Fact]
+        public void FromError_ThenResultIsReturned()
+        {
+            Functional.Explicit.Result<Error> result = Error.Foo;
+
+            result.Should().NotBeNull();
+        }
 
         [Fact]
         public void ThenResultIsFailure()
@@ -28,22 +46,6 @@ namespace Jgs.Functional.Spec.Explicit
             var result = Failure(Error.Foo);
 
             result.Error.Should().Be(Error.Foo);
-        }
-
-        #endregion
-    }
-
-    public class WhenCreatingASuccess
-    {
-        #region Test Methods
-
-        [Fact]
-        public void ThenResultIsSuccess()
-        {
-            var result = Success();
-
-            result.IsFailure.Should().BeFalse();
-            result.IsSuccess.Should().BeTrue();
         }
 
         #endregion

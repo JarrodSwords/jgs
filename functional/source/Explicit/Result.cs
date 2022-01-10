@@ -1,10 +1,10 @@
 ﻿namespace Jgs.Functional.Explicit
 {
-    public record Result<T>
+    public record Result<TError>
     {
         #region Creation
 
-        private Result(T error = default)
+        protected internal Result(TError error = default)
         {
             Error = error;
         }
@@ -13,7 +13,7 @@
 
         #region Public Interface
 
-        public T Error { get; }
+        public TError Error { get; }
         public bool IsFailure => !IsSuccess;
         public bool IsSuccess => Error is null;
 
@@ -21,8 +21,27 @@
 
         #region Static Interface
 
-        public static Result<T> Failure(T error) => new(error);
-        public static Result<T> Success() => new();
+        public static Result<TError> Failure(TError error) => new(error);
+        public static Result<TValue, TError> Failure<TValue>(TError error) => new(error);
+        public static Result<TError> Success() => new();
+        public static implicit operator Result<TError>(TError error) => new(error);
+
+        #endregion
+    }
+
+    public record Result<TValue, TError> : Result<TError>
+    {
+        #region Creation
+
+        protected internal Result(TError error) : base(error)
+        {
+        }
+
+        #endregion
+
+        #region Public Interface
+
+        public TValue Value { get; set; }
 
         #endregion
     }
