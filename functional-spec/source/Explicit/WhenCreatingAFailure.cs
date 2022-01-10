@@ -4,21 +4,6 @@ using static Jgs.Functional.Explicit.Result<Jgs.Functional.Spec.Explicit.Error>;
 
 namespace Jgs.Functional.Spec.Explicit
 {
-    public class WhenCreatingATypedFailure
-    {
-        #region Test Methods
-
-        [Fact]
-        public void ThenValueIsDefault()
-        {
-            var result = Failure<object>(Error.Foo);
-
-            result.Value.Should().BeNull();
-        }
-
-        #endregion
-    }
-
     public class WhenCreatingAFailure
     {
         #region Test Methods

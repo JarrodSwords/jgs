@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using Xunit;
+using static Jgs.Functional.Explicit.Result<Jgs.Functional.Spec.Explicit.Error>;
 
 namespace Jgs.Functional.Spec.Explicit
 {
@@ -10,7 +11,7 @@ namespace Jgs.Functional.Spec.Explicit
         [Fact]
         public void ThenResultIsSuccess()
         {
-            var result = Functional.Explicit.Result<Error>.Success();
+            var result = Success();
 
             result.IsFailure.Should().BeFalse();
             result.IsSuccess.Should().BeTrue();
