@@ -1,19 +1,33 @@
 ﻿using FluentAssertions;
 using Xunit;
+using static Jgs.Functional.Explicit.Result<Jgs.Functional.Spec.Explicit.Error>;
 
 namespace Jgs.Functional.Spec.Explicit
 {
-    public class WhenCreatingAnError
+    public record Error(string Code, string Message)
+    {
+        public static Error Foo = new("foo", "this is not the success you're looking for");
+    }
+
+    public class WhenCreatingAFailure
     {
         #region Test Methods
 
         [Fact]
         public void ThenResultIsFailure()
         {
-            var result = Functional.Explicit.Result.Error();
+            var result = Failure(Error.Foo);
 
             result.IsFailure.Should().BeTrue();
             result.IsSuccess.Should().BeFalse();
+        }
+
+        [Fact]
+        public void WithExplicitError_ThenReturnsError()
+        {
+            var result = Failure(Error.Foo);
+
+            result.Error.Should().Be(Error.Foo);
         }
 
         #endregion
@@ -26,7 +40,7 @@ namespace Jgs.Functional.Spec.Explicit
         [Fact]
         public void ThenResultIsSuccess()
         {
-            var result = Functional.Explicit.Result.Success();
+            var result = Success();
 
             result.IsFailure.Should().BeFalse();
             result.IsSuccess.Should().BeTrue();
